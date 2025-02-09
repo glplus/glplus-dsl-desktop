@@ -21,6 +21,7 @@ module.exports = {
   ],
   devServer: {
     static: path.join(__dirname, '/dist'),
+    compress: true,
     port: 4570 // you can change the port
   },
   module: {
@@ -37,6 +38,14 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.i18n$/,
+        exclude: /node_modules/,
+        loader: 'i18next-ts-loader',
+        options: {
+          localeFilesPattern: 'locales/{{lng}}/{{ns}}.json',
+        },
       },
       {
         test:/\.css$/,

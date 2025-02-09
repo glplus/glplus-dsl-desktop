@@ -1,7 +1,20 @@
-// import React from 'react';
+import './i18n/i18n';
+import { useTranslation } from "react-i18next";
+import TranslationExample from "./components/TranslationExample";
+
 
 const App = () => {
-    return <div>Grocery List Plus Design System Library</div>;
+    const {t} = useTranslation();
+
+    return (
+      <div>
+          <div>
+              <h1>{t('salutation', { name: 'Rod'})}</h1>
+          </div>
+          <div>Grocery List Plus Design System Library</div>
+          <TranslationExample />
+      </div>
+    );
 };
 
 export default App;
