@@ -6,7 +6,14 @@ import pluginReact from "eslint-plugin-react";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+  {
+    rules: {
+      "no-unused-vars": "error",
+      "prefer-const": ["error", { "ignoreReadBeforeAssign": true }]
+    }
+  },
   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
+  {files: ["**/*.js"], languageOptions: {sourceType: "commonjs"}},
   {languageOptions: { globals: globals.browser }},
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
