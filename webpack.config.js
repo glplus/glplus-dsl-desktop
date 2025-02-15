@@ -20,7 +20,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: path.join(__dirname, "/dist"),
+    static: path.join(__dirname, "/public"),
     compress: true,
     port: 4570, // you can change the port
   },
@@ -52,8 +52,17 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|svg|jpeg|jpeg|gif)$/,
-        type: "assets",
+        test: /\.(png|svg|jpeg|jpeg|gif|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              outputPath: 'public', // Output images to 'public/images'
+              // publicPath: './assets/images', // Use root as public path
+            },
+          },
+        ],
       },
     ],
   },
