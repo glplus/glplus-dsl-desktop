@@ -7,7 +7,7 @@ import { join, dirname } from "path";
  * It is needed in projects that use Yarn PnP or are set up within a monorepo.
  */
 function getAbsolutePath(value: string): any {
-  return dirname(require.resolve(join(value, "package.json")));
+  return dirname(join(value, "package.json"));
 }
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -17,14 +17,14 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@chromatic-com/storybook"),
     getAbsolutePath("@storybook/addon-interactions"),
-    getAbsolutePath("@storybook/addon-themes")
+    getAbsolutePath("@storybook/addon-themes"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-webpack5"),
     options: {},
   },
   typescript: {
-    reactDocgen: 'react-docgen-typescript',
+    reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       // Speeds up Storybook build time
       compilerOptions: {
