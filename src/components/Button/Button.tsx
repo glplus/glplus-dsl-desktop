@@ -76,6 +76,9 @@ const theme = createTheme({
           padding: '8px 20px',
           margin: 0
         },
+        iconButton: {
+          backgroundColor: 'transparent',
+        },
         outlinedGreen: {
           border: '2px solid #3DA026',
           color: '#3DA026',
@@ -142,6 +145,7 @@ enum EIcons {
   favoriteOutlined = 'favoriteOutlined',
   filter = 'filter',
   glplusAddGreen= 'glplusAddGreen',
+  glplusAddOrange = 'glplusAddOrange',
   help = 'help',
   home = 'home',
   howItWorks = 'howItWorks',

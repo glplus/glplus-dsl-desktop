@@ -41,7 +41,7 @@ export const IconButton: Story = {
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
-    startIcon: 'add',
+    startIcon: 'glplusAddOrange',
   },
 };
 
