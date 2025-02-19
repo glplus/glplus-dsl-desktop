@@ -10,7 +10,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const CheckboxNoLabel: Story = {
+export const NoLabel: Story = {
   args: {
     ariaLabel: 'checkbox aria label',
     color: 'primary',
@@ -21,7 +21,7 @@ export const CheckboxNoLabel: Story = {
   },
 };
 
-export const CheckboxWithLabel: Story = {
+export const WithLabel: Story = {
   args: {
     ariaLabel: 'checkbox aria label',
     color: 'primary',
@@ -32,7 +32,7 @@ export const CheckboxWithLabel: Story = {
   },
 };
 
-export const CheckboxStyled: Story = {
+export const Styled: Story = {
   args: {
     ariaLabel: 'checkbox aria label',
     color: '#FF0000',
@@ -43,7 +43,7 @@ export const CheckboxStyled: Story = {
   },
 };
 
-export const CheckboxLabelStyled: Story = {
+export const LabelStyled: Story = {
   args: {
     ariaLabel: 'checkbox aria label',
     color: '#FF0000',
@@ -57,7 +57,7 @@ export const CheckboxLabelStyled: Story = {
   },
 };
 
-export const CheckboxIconOnly: Story = {
+export const IconOnly: Story = {
   args: {
     ariaLabel: 'checkbox aria label',
     checkedIcon: 'favorite',
