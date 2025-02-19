@@ -54,6 +54,7 @@ interface ICheckboxProps {
   checkedIcon?: EIcons;
   color?: EColorOptions | string;
   defaultChecked: boolean;
+  disabled?: boolean;
   icon?: EIcons;
   label?: string;
   labelPlacement?: ELabelPlacement;
@@ -62,7 +63,7 @@ interface ICheckboxProps {
   size?: ESizeOptions;
 }
 
-const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, icon, label = '', labelPlacement = 'end', labelStyle, ...rest}: ICheckboxProps) => {
+const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, disabled, icon, label = '', labelPlacement = 'end', labelStyle, ...rest}: ICheckboxProps) => {
   let borderColorString, checkedIconString, iconString;
 
   switch (color) {
@@ -116,6 +117,7 @@ const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, icon, 
               checkedIcon={checkedIconString}
               color={color}
               defaultChecked={defaultChecked}
+              disabled={disabled}
               icon={iconString}
               inputProps={{
                 'aria-label': ariaLabel
@@ -138,6 +140,7 @@ const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, icon, 
             <GLPCheckbox
               color={color}
               defaultChecked={defaultChecked}
+              disabled={disabled}
               inputProps={{
                 'aria-label': ariaLabel
               }}
