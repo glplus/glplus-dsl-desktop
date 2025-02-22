@@ -2,10 +2,13 @@ import React from 'react';
 import "./i18n/i18n";
 import Logo from '../src/components/Logo/Logo';
 import Checkbox from './components/Checkbox/Checkbox';
+import Radio from './components/Radio/Radio';
+
 
 const App = () => {
-  const onChangeTest = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('perfect', event.target.checked);
+  const onChangeTest = (event: React.ChangeEvent<Element>) => {
+    const target = event.target as HTMLInputElement;
+    console.log('clicked', target.checked);
   }
 
   return (
@@ -16,15 +19,18 @@ const App = () => {
       <div>
         <Checkbox
           ariaLabel={'Terms of Service checkbox'}
-          color={'#ff0000'}
+          color={'purple'}
           defaultChecked={false}
           label={'label test'}
           labelStyle={{
-            color: 'red'
+            color: 'purple'
           }}
           onChange={onChangeTest}
-          size={'medium'}
+          size='large'
         />
+      </div>
+      <div>
+        <Radio color='blue' size='large' onChange={onChangeTest} />
       </div>
     </>
   );

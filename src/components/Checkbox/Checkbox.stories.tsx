@@ -2,9 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Checkbox from './Checkbox';
 
-const meta = {
+const meta: Meta<typeof Checkbox> = {
+  title: 'UI Components/Checkbox',
   component: Checkbox,
-} satisfies Meta<typeof Checkbox>;
+};
 
 export default meta;
 
@@ -15,7 +16,7 @@ export const NoLabel: Story = {
     ariaLabel: 'checkbox aria label',
     color: 'primary',
     defaultChecked: false,
-    labelPlacement: '',
+    labelPlacement: undefined,
     label: '',
     size: 'medium',
   },
@@ -35,11 +36,19 @@ export const WithLabel: Story = {
 export const Styled: Story = {
   args: {
     ariaLabel: 'checkbox aria label',
-    color: '#FF0000',
+    color: 'primary',
     defaultChecked: false,
     labelPlacement: 'end',
     label: 'checkbox label at end',
     size: 'medium',
+
+    labelStyle: {
+      color: '#3DA026',
+    },
+
+    icon: '',
+    checkedIcon: 'suggested',
+    disabled: false,
   },
 };
 
@@ -48,7 +57,7 @@ export const LabelStyled: Story = {
     ariaLabel: 'checkbox aria label',
     color: '#FF0000',
     defaultChecked: false,
-    labelPlacement: 'end',
+    labelPlacement: undefined,
     label: 'checkbox label at end',
     labelStyle: {
       color: 'red',
@@ -60,11 +69,11 @@ export const LabelStyled: Story = {
 export const IconOnly: Story = {
   args: {
     ariaLabel: 'checkbox aria label',
-    checkedIcon: 'favorite',
+    checkedIcon: undefined,
     color: 'primary',
     defaultChecked: false,
-    icon: 'favorite',
-    labelPlacement: 'end',
+    icon: undefined,
+    labelPlacement: undefined,
     label: '',
     size: 'medium',
   },

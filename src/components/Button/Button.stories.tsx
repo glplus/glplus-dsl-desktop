@@ -11,7 +11,10 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: { onClick: fn() },
+  args: {
+    label: 'Button test',
+    onClick: fn()
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -20,7 +23,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Contained: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'contained',
@@ -33,7 +35,6 @@ export const Contained: Story = {
 
 export const IconButton: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'iconButton',
@@ -47,7 +48,6 @@ export const IconButton: Story = {
 
 export const OutlinedGreen: Story = {
   args: {
-    label: 'Button test',
     fullWidth: false,
     variant: 'outlinedGreen',
     centerRipple: true,
@@ -60,7 +60,6 @@ export const OutlinedGreen: Story = {
 
 export const OutlinedOrange: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'outlinedOrange',
@@ -74,7 +73,6 @@ export const OutlinedOrange: Story = {
 
 export const Registration: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'registration',
@@ -87,7 +85,6 @@ export const Registration: Story = {
 
 export const Text: Story = {
   args: {
-    label: 'Home',
     color: '',
     fullWidth: false,
     variant: 'text',
@@ -101,7 +98,6 @@ export const Text: Story = {
 
 export const White: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'white',

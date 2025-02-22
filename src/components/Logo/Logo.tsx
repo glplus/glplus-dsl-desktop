@@ -30,10 +30,10 @@ enum EStyleOptions {
 }
 
 interface LogoProps {
-  color: EColorOptions;
+  color: EColorOptions | string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  size: ESizeOptions;
-  style: EStyleOptions;
+  size: ESizeOptions | string;
+  style: EStyleOptions | string;
 }
 
 const Logo = ({ color = 'primary', onClick, size = 'desktop', style = 'full' }: LogoProps) => {
@@ -93,9 +93,8 @@ const Logo = ({ color = 'primary', onClick, size = 'desktop', style = 'full' }: 
   }
 
 
-
   return (
-    <Box onClick={onClick}>
+    <Box onClick={() => onClick}>
         <img src={selectedImage} alt={altText} style={{ width: imgWidth }} />
     </Box>
   )

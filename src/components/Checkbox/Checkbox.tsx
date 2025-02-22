@@ -52,29 +52,43 @@ enum ESizeOptions {
 interface ICheckboxProps {
   ariaLabel: string;
   checkedIcon?: EIcons;
-  color?: EColorOptions | string;
+  color?: EColorOptions | string | undefined;
   defaultChecked: boolean;
   disabled?: boolean;
-  icon?: EIcons;
+  icon?: EIcons | string;
   label?: string;
   labelPlacement?: ELabelPlacement;
   labelStyle?: any;
   onChange?: (event: React.ChangeEvent) => void;
-  size?: ESizeOptions;
+  size?: ESizeOptions | string | undefined;
 }
 
-const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, disabled, icon, label = '', labelPlacement = 'end', labelStyle, ...rest}: ICheckboxProps) => {
-  let borderColorString, checkedIconString, iconString;
+const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, disabled, icon, label = '', labelPlacement = ELabelPlacement.end, labelStyle, onChange, size, ...rest}: ICheckboxProps) => {
+  let borderColorString, colorString, checkedIconString, iconString;
 
+  // if we ever want to have different border color than fill color we need to add borderColorString prop and populate it in sx in place of 'color'
   switch (color) {
     case 'primary':
-      borderColorString = '#3DA026'
+      borderColorString = '#3DA026';
       break;
     case 'secondary':
-      borderColorString = '#F67A1A'
+      borderColorString = '#F67A1A';
       break;
     default:
-      borderColorString = color !== undefined ? color : '';
+      borderColorString = color;
+      break;
+  }
+
+  // if we ever want to have different border color than fill color we need to add borderColorString prop and populate it in sx in place of 'color'
+  switch (color) {
+    case 'primary':
+      colorString = '#3DA026';
+      break;
+    case 'secondary':
+      colorString = '#F67A1A';
+      break;
+    default:
+      colorString = color;
       break;
   }
 
@@ -115,15 +129,17 @@ const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, disabl
           control={
             <GLPCheckbox
               checkedIcon={checkedIconString}
-              color={color}
+              color={EColorOptions[colorString as keyof typeof EColorOptions] || colorString}
               defaultChecked={defaultChecked}
               disabled={disabled}
               icon={iconString}
               inputProps={{
                 'aria-label': ariaLabel
               }}
+              onChange={onChange}
+              size={ESizeOptions[size as keyof typeof ESizeOptions] || undefined}
               sx={{
-                color: color
+                color: colorString
               }}
               {...rest}
             />
@@ -138,14 +154,16 @@ const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, disabl
         <GLPFormControlLabel
           control={
             <GLPCheckbox
-              color={color}
+              color={EColorOptions[color as keyof typeof EColorOptions] || colorString}
               defaultChecked={defaultChecked}
               disabled={disabled}
               inputProps={{
                 'aria-label': ariaLabel
               }}
+              onChange={onChange}
+              size={ESizeOptions[size as keyof typeof ESizeOptions] || undefined}
               sx={{
-                color: color
+                color: colorString
               }}
               {...rest}
             />
