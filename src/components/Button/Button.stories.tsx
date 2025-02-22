@@ -26,7 +26,7 @@ export const Contained: Story = {
     color: 'primary',
     fullWidth: false,
     variant: 'contained',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -38,7 +38,7 @@ export const IconButton: Story = {
     color: 'primary',
     fullWidth: false,
     variant: 'iconButton',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -48,9 +48,10 @@ export const IconButton: Story = {
 
 export const OutlinedGreen: Story = {
   args: {
+    color: 'primary',
     fullWidth: false,
     variant: 'outlinedGreen',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -63,7 +64,7 @@ export const OutlinedOrange: Story = {
     color: 'primary',
     fullWidth: false,
     variant: 'outlinedOrange',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -76,7 +77,7 @@ export const Registration: Story = {
     color: 'primary',
     fullWidth: false,
     variant: 'registration',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -88,7 +89,7 @@ export const Text: Story = {
     color: '',
     fullWidth: false,
     variant: 'text',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#000000',
     disabled: false,
@@ -101,7 +102,7 @@ export const White: Story = {
     color: 'primary',
     fullWidth: false,
     variant: 'white',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,

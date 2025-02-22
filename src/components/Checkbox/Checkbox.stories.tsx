@@ -47,7 +47,7 @@ export const Styled: Story = {
     },
 
     icon: '',
-    checkedIcon: 'suggested',
+    checkedIcon: undefined,
     disabled: false,
   },
 };

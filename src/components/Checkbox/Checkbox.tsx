@@ -55,11 +55,11 @@ interface ICheckboxProps {
   color?: EColorOptions | string | undefined;
   defaultChecked: boolean;
   disabled?: boolean;
-  icon?: EIcons | string;
+  icon?: EIcons | string | undefined;
   label?: string;
-  labelPlacement?: ELabelPlacement;
+  labelPlacement?: ELabelPlacement | string | undefined;
   labelStyle?: any;
-  onChange?: (event: React.ChangeEvent) => void;
+  onChange?: (event: React. ChangeEvent<HTMLInputElement>) => void;
   size?: ESizeOptions | string | undefined;
 }
 
@@ -145,7 +145,7 @@ const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, disabl
             />
           }
           label={label}
-          labelPlacement={labelPlacement}
+          labelPlacement={ELabelPlacement[labelPlacement as keyof typeof ELabelPlacement] || undefined}
           sx={
             labelStyle
           }
@@ -169,7 +169,7 @@ const Checkbox = ({ariaLabel, checkedIcon, color, defaultChecked = false, disabl
             />
           }
           label={label}
-          labelPlacement={labelPlacement}
+          labelPlacement={ELabelPlacement[labelPlacement as keyof typeof ELabelPlacement] || undefined}
           sx={
             labelStyle
           }

@@ -31,7 +31,7 @@ enum ESizeOptions {
 
 interface IRadioProps {
   color: EColorOptions | string;
-  onChange?: (event: React.ChangeEvent) => void;
+  onChange?: (event: React. ChangeEvent<HTMLInputElement>) => void;
   size?: ESizeOptions | string | undefined;
 }
 
