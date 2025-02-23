@@ -13,7 +13,7 @@ const meta = {
   tags: ['autodocs'],
   args: {
     label: 'Button test',
-    onClick: fn()
+    onClick: fn(),
   },
 } satisfies Meta<typeof Button>;
 

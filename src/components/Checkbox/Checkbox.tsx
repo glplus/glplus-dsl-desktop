@@ -59,7 +59,7 @@ export interface ICheckboxProps {
   label?: string;
   labelPlacement?: ELabelPlacement | string | undefined;
   labelStyle?: any;
-  onChange?: (event: React. ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   size?: ESizeOptions | string | undefined;
 }
 

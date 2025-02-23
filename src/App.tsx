@@ -19,13 +19,15 @@ const App = () => {
     console.log('clicked', target.checked);
   }
 
-  const [radioGroupValue, setRadioGroupValue] = useState('test');
+  const [radioGroupValue, setRadioGroupValue] = useState('female');
   const radioArray = [
     {
+      id: 1,
       label: 'Female',
       value: 'female'
     },
     {
+      id: 2,
       label: 'Male',
       value: 'male'
     }
@@ -45,6 +47,7 @@ const App = () => {
           label={'button label'}
           variant={'contained'}
           startIcon={'home'}
+          onClick={() => console.log('clicked')}
         />
       </div>
       <div>
@@ -54,6 +57,7 @@ const App = () => {
           variant={'iconButton'}
           startIcon={'home'}
           textColor={'primary'}
+          onClick={() => console.log('clicked')}
         />
       </div>
       <div>
@@ -63,6 +67,7 @@ const App = () => {
           variant={'text'}
           startIcon={'home'}
           textColor={'primary'}
+          onClick={() => console.log('clicked')}
         />
       </div>
       <div>

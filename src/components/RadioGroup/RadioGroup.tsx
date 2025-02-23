@@ -25,7 +25,7 @@ const RadioGroup = ({ariaLabel, color, defaultValue, options, name, value, onCha
     >
       {options.map((option) => (
         <FormControlLabel
-          key={useId()}
+          key={option.id}
           control={<Radio color={color} />}
           label={option.label}
           value={option.value}

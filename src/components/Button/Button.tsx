@@ -348,7 +348,7 @@ const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endI
   return (
     <ThemeProvider theme={theme}>
       {variant === 'iconButton' ? (
-        <GLPIconButton aria-label={ariaLabel}>
+        <GLPIconButton aria-label={ariaLabel} onClick={onClick}>
           {iconString}
         </GLPIconButton>
       ) : (
@@ -359,6 +359,7 @@ const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endI
           data-testid={dataTestId}
           disabled={disabled}
           fullWidth={fullWidth}
+          onClick={onClick}
           startIcon={iconString}
           sx={{
             backgroundColor: variant === 'contained' ? colorString : '',
