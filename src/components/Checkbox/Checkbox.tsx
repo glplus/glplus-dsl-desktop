@@ -49,7 +49,7 @@ enum ESizeOptions {
   small = 'small'
 }
 
-interface ICheckboxProps {
+export interface ICheckboxProps {
   ariaLabel: string;
   checkedIcon?: EIcons;
   color?: EColorOptions | string | undefined;

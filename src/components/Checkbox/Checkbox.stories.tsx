@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Checkbox from './Checkbox';
+import Checkbox, { type ICheckboxProps } from './Checkbox';
+import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'UI Components/Checkbox',
   component: Checkbox,
+  tags: ['autodocs'],
+  args: { onChange: fn() },
 };
 
 export default meta;
@@ -69,10 +72,10 @@ export const LabelStyled: Story = {
 export const IconOnly: Story = {
   args: {
     ariaLabel: 'checkbox aria label',
-    checkedIcon: undefined,
+    checkedIcon: 'recurring',
     color: 'primary',
     defaultChecked: false,
-    icon: undefined,
+    icon: 'recurring',
     labelPlacement: undefined,
     label: '',
     size: 'medium',
