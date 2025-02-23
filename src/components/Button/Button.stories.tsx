@@ -11,7 +11,10 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: { onClick: fn() },
+  args: {
+    label: 'Button test',
+    onClick: fn(),
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -20,11 +23,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Contained: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'contained',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -33,11 +35,10 @@ export const Contained: Story = {
 
 export const IconButton: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'iconButton',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -47,10 +48,10 @@ export const IconButton: Story = {
 
 export const OutlinedGreen: Story = {
   args: {
-    label: 'Button test',
+    color: 'primary',
     fullWidth: false,
     variant: 'outlinedGreen',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -60,11 +61,10 @@ export const OutlinedGreen: Story = {
 
 export const OutlinedOrange: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'outlinedOrange',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -74,11 +74,10 @@ export const OutlinedOrange: Story = {
 
 export const Registration: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'registration',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,
@@ -87,11 +86,10 @@ export const Registration: Story = {
 
 export const Text: Story = {
   args: {
-    label: 'Home',
     color: '',
     fullWidth: false,
     variant: 'text',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#000000',
     disabled: false,
@@ -101,11 +99,10 @@ export const Text: Story = {
 
 export const White: Story = {
   args: {
-    label: 'Button test',
     color: 'primary',
     fullWidth: false,
     variant: 'white',
-    centerRipple: true,
+    // centerRipple is not a valid property, removed to fix type error
     ariaLabel: 'test button aria label',
     textColor: '#ffffff',
     disabled: false,

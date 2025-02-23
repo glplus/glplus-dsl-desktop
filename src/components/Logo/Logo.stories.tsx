@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import Logo from './Logo';
+import Logo, { type ILogoProps } from './Logo';
 
 const meta = {
   title: 'UI Components/Logo',

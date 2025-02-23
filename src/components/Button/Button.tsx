@@ -185,24 +185,24 @@ enum EVariant {
   white = 'white'
 }
 
-export interface ButtonProps extends ButtonBaseProps {
+export interface ButtonProps {
   ariaLabel: string;
-  color: EColor | string;
+  color?: EColor | string | undefined;
   dataTestId?: string;
   disabled?: boolean;
-  endIcon?: EIcons;
+  endIcon?: EIcons | string | undefined;
   fullWidth?: boolean;
   href?: string;
   label: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  startIcon?: EIcons;
+  startIcon?: EIcons | string | undefined;
   textColor?: ETextColor | string;
-  variant: EVariant;
+  variant: EVariant | string;
 }
 
 
 const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endIcon, fullWidth = false, href, label, onClick, startIcon, textColor, variant, ...rest }: ButtonProps) => {
-  let colorString, iconString, textString;
+  let colorString, iconString, textColorString;
   // check for custom color
   switch (color) {
     case 'primary':
@@ -218,20 +218,20 @@ const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endI
 
   switch (textColor) {
     case 'primary':
-      textString = '#3DA026';
+      textColorString = '#3DA026';
       break;
     case 'secondary':
-      textString = '#0A75BF';
+      textColorString = '#0A75BF';
       break;
     default:
-      textString = textColor;
+      textColorString = textColor;
       break;
   }
 
   switch (startIcon) {
     case 'add':
       iconString = <AddIcon
-        color={textColor !== undefined ? textColor : '#ffffff'}
+        color={ETextColor[textColor as keyof typeof ETextColor] || textColorString}
         style={{
           backgroundColor: colorString,
           color: '#ffffff',
@@ -242,103 +242,103 @@ const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endI
       />
       break;
     case 'addToList':
-      iconString = <PlaylistAddIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <PlaylistAddIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'arrowBack':
-      iconString = <ArrowBackIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <ArrowBackIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'cart':
-      iconString = <ShoppingCartIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <ShoppingCartIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'check':
-      iconString = <CheckIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <CheckIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'devices':
-      iconString = <DevicesIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <DevicesIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'facebook':
-      iconString = <FacebookIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <FacebookIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'favorite':
-      iconString = <FavoriteIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <FavoriteIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'favoriteOutlined':
-      iconString = <FavoriteBorderIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <FavoriteBorderIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'filter':
-      iconString = <FilterAltIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <FilterAltIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'glplusAddGreen':
-      iconString = <img src={glplusAddGreen} />
+      iconString = <img src={glplusAddGreen} alt={ariaLabel} />
       break;
     case 'glplusAddOrange':
-      iconString = <img src={glplusAddOrange} />
+      iconString = <img src={glplusAddOrange} alt={ariaLabel} />
       break;
     case 'help':
-      iconString = <HelpOutlineIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <HelpOutlineIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'home':
-      iconString = <HomeIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <HomeIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'howItWorks':
-      iconString = <QuestionAnswerIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <QuestionAnswerIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'info':
-      iconString = <InfoIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <InfoIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'linkedin':
-      iconString = <LinkedInIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <LinkedInIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'list':
-      iconString = <ListIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <ListIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'location':
-      iconString = <LocationOnIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <LocationOnIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'messages':
-      iconString = <ChatBubbleOutlineIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <ChatBubbleOutlineIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'mobile':
-      iconString = <InstallMobileIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <InstallMobileIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'phone':
-      iconString = <PhoneIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <PhoneIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'pinterest':
-      iconString = <PinterestIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <PinterestIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'plus':
-      iconString = <AddIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <AddIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'recipe':
-      iconString = <SummarizeIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <SummarizeIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'recurring':
-      iconString = <AutorenewIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <AutorenewIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'search':
-      iconString = <SearchIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <SearchIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'settings':
-      iconString = <SettingsIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <SettingsIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'shop':
-      iconString = <ShoppingBasketIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <ShoppingBasketIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'sort':
-      iconString = <SortIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <SortIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'subscription':
-      iconString = <LoyaltyIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <LoyaltyIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'suggested':
-      iconString = <StarIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <StarIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'suggestedOutlined':
-      iconString = <StarBorderIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <StarBorderIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     case 'youtube':
-      iconString = <YouTubeIcon color={textColor !== undefined ? textColor : '#ffffff'} />
+      iconString = <YouTubeIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
       break;
     default:
       iconString = ''
@@ -348,7 +348,7 @@ const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endI
   return (
     <ThemeProvider theme={theme}>
       {variant === 'iconButton' ? (
-        <GLPIconButton aria-label={ariaLabel}>
+        <GLPIconButton aria-label={ariaLabel} onClick={onClick}>
           {iconString}
         </GLPIconButton>
       ) : (
@@ -359,10 +359,11 @@ const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endI
           data-testid={dataTestId}
           disabled={disabled}
           fullWidth={fullWidth}
+          onClick={onClick}
           startIcon={iconString}
           sx={{
             backgroundColor: variant === 'contained' ? colorString : '',
-            color: variant === 'contained' || variant === 'text' ? textString : ''
+            color: variant === 'contained' || variant === 'text' ? textColorString : ''
           }}
           variant={variant}
         >
