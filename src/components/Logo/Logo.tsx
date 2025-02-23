@@ -29,14 +29,14 @@ enum EStyleOptions {
   partial = 'partial'
 }
 
-interface LogoProps {
+export interface ILogoProps {
   color: EColorOptions | string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   size: ESizeOptions | string;
   style: EStyleOptions | string;
 }
 
-const Logo = ({ color = 'primary', onClick, size = 'desktop', style = 'full' }: LogoProps) => {
+const Logo = ({ color = 'primary', onClick, size = 'desktop', style = 'full' }: ILogoProps) => {
   const { t } = useTranslation();
   const altText = t("component.logo.altText.default")
 
