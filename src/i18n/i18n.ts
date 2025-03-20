@@ -15,6 +15,9 @@ i18next
     debug: true,
     fallbackLng: "en-US",
     defaultNS,
+    backend: {
+      loadPath: 'locales/{{lng}}/translation.json'
+    }
   });
 
 export default i18next;

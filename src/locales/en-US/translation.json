@@ -6,5 +6,8 @@
     "part2": "😉"
   },
   "userMessagesUnread_one": "You have {{count}} unread message.",
-  "userMessagesUnread_other": "You have {{count}} unread messages."
+  "userMessagesUnread_other": "You have {{count}} unread messages.",
+
+  "component.logo.altText.default": "Grocery List Plus company logo."
+
 }
