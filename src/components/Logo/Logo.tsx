@@ -14,7 +14,7 @@ import glp_logo_partial_black from '../../../assets/images/glp_logo_partial_blac
 enum EColorOptions {
   black = 'black',
   mixed = 'mixed',
-  primary = "primary",
+  primary = 'primary',
   white = 'white'
 }
 
@@ -36,7 +36,7 @@ export interface ILogoProps {
   style: EStyleOptions | string;
 }
 
-const Logo = ({ color = 'primary', onClick, size = 'desktop', style = 'full' }: ILogoProps) => {
+const Logo = ({ color = EColorOptions.primary, onClick, size = ESizeOptions.desktop, style = EStyleOptions.full }: ILogoProps) => {
   const { t } = useTranslation();
   const altText = t("component.logo.altText.default")
 
@@ -98,6 +98,6 @@ const Logo = ({ color = 'primary', onClick, size = 'desktop', style = 'full' }: 
         <img src={selectedImage} alt={altText} style={{ width: imgWidth }} />
     </Box>
   )
-}
+};
 
 export default Logo;

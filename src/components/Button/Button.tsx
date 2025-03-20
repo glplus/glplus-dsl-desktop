@@ -39,6 +39,8 @@ import SortIcon from '@mui/icons-material/Sort';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import SummarizeIcon from '@mui/icons-material/Summarize';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
 
@@ -167,6 +169,8 @@ enum EIcons {
   subscription = 'subscription', // loyalty icon
   suggested = 'suggested',
   suggestedOutlined = 'suggestedOutlined',
+  visibility = 'visibility',
+  visibilityOff = 'visibilityOff',
   youtube = 'youtube',
 }
 
@@ -193,7 +197,7 @@ export interface ButtonProps {
   endIcon?: EIcons | string | undefined;
   fullWidth?: boolean;
   href?: string;
-  label: string;
+  label?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   startIcon?: EIcons | string | undefined;
   textColor?: ETextColor | string;
@@ -201,7 +205,7 @@ export interface ButtonProps {
 }
 
 
-const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endIcon, fullWidth = false, href, label, onClick, startIcon, textColor, variant, ...rest }: ButtonProps) => {
+const Button =({ariaLabel, color = EColor.primary, dataTestId, disabled = false, endIcon, fullWidth = false, href, label, onClick, startIcon, textColor, variant, ...rest }: ButtonProps) => {
   let colorString, iconString, textColorString;
   // check for custom color
   switch (color) {
@@ -336,6 +340,12 @@ const Button =({ariaLabel, color = 'primary', dataTestId, disabled = false, endI
       break;
     case 'suggestedOutlined':
       iconString = <StarBorderIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />
+      break;
+    case 'visibility':
+      iconString = <Visibility />
+      break;
+    case 'visibilityOff':
+      iconString = <VisibilityOff />
       break;
     case 'youtube':
       iconString = <YouTubeIcon color={ETextColor[textColor as keyof typeof ETextColor] || textColorString} />

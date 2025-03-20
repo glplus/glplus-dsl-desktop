@@ -5,21 +5,35 @@ import Checkbox from './components/Checkbox/Checkbox';
 import Radio from './components/Radio/Radio';
 import Button from './components/Button/Button';
 import RadioGroup from './components/RadioGroup/RadioGroup';
+import TextField from './components/TextField/TextField';
 
 
 const App = () => {
-  const onChangeRadio = (event: React.ChangeEvent<Element>) => {
+  const onChangeRadio = (event: React.ChangeEvent) => {
     const target = event.target as HTMLInputElement;
     console.log(target.value);
     setRadioGroupValue((event.target as HTMLInputElement).value);
     setRadioGroupValue(target.value)
+  }
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement;
+    console.log('input changes', target.value);
+    setTextFieldValue(target.value);
   }
   const onChangeTest = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     console.log('clicked', target.checked);
   }
 
+  const handleIconClick = () => {
+    console.log('handle called');
+    setShowPasswordMasked(!showPasswordMasked);
+    console.log('show password', showPasswordMasked);
+  }
+
   const [radioGroupValue, setRadioGroupValue] = useState('female');
+  const [showPasswordMasked, setShowPasswordMasked] = useState(true);
+  const [textFieldValue, setTextFieldValue] = useState('');
   const radioArray = [
     {
       id: 1,
@@ -40,6 +54,29 @@ const App = () => {
       <div>
         <Logo color='primary' size='desktop' style='full' />
       </div>
+      <div>&nbsp;</div>
+
+      <div>
+        <TextField
+          ariaLabel={'input aria label'}
+          disabled={false}
+          endAdornment={'visibility'}
+          error={false}
+          focused={false}
+          fullWidth={false}
+          helperText={'helper text'}
+          id={'input-label'}
+          label={'Input Label'}
+          handleIconClick={handleIconClick}
+          multiline={false}
+          onChange={onChangeInput}
+          placeholder={'placeholder'}
+          required={false}
+          value={textFieldValue}
+          type={showPasswordMasked ? 'password' : 'text'}
+        />
+      </div>
+      <div>&nbsp;</div>
       <div>
         <Button
           color={'secondary'}
